@@ -1,0 +1,1 @@
+everthing works, except when you move rotation over 60degree in toggle rotation will force the entire view to spin like crazy
