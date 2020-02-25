@@ -1,14 +1,15 @@
 # Dogginator 
 
 
-Controller mapping:
+## Controller mapping:
   - A: shot bullet
   - left_hand: speed up
   - left_thumbstick: rotate aircrasft
   - Y: reset game
   - right_thumbstick: rotate aim_scope
 
-patch 2.24:
+## update: 
+  ### patch 2.24:
   - added bullet effect
     - smoke
     - flare
