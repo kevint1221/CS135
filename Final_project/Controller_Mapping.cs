@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -59,15 +59,15 @@ public class Controller_Mapping : MonoBehaviour
             Debug.Log("right_stick move up");
             if (left_stick.y <= 0.3)
             {
-                aircraft.transform.Rotate(-0.05f, 0f, 0f);
+                aircraft.transform.Rotate(-0.025f, 0f, 0f);
             }
             else if (left_stick.y <= 0.6)
             {
-                aircraft.transform.Rotate(-0.1f, 0f, 0f);
+                aircraft.transform.Rotate(-0.05f, 0f, 0f);
             }
             else
             {
-                aircraft.transform.Rotate(-0.2f, 0f, 0f);
+                aircraft.transform.Rotate(-0.1f, 0f, 0f);
             }
         }
         //Debug.Log(front_end.transform.position);
@@ -78,15 +78,15 @@ public class Controller_Mapping : MonoBehaviour
             Debug.Log("right_stick move down");
             if (left_stick.y >= -0.3)
             {
-                aircraft.transform.Rotate(0.05f, 0f, 0f);
+                aircraft.transform.Rotate(0.025f, 0f, 0f);
             }
             else if (left_stick.y >= -0.6)
             {
-                aircraft.transform.Rotate(0.1f, 0f, 0f);
+                aircraft.transform.Rotate(0.05f, 0f, 0f);
             }
             else
             {
-                aircraft.transform.Rotate(0.2f, 0f, 0f);
+                aircraft.transform.Rotate(0.1f, 0f, 0f);
             }
         }
 
@@ -96,15 +96,15 @@ public class Controller_Mapping : MonoBehaviour
             Debug.Log("right_stick move up");
             if (left_stick.x <= 0.3)
             {
-                aircraft.transform.Rotate(0f, 0.05f, 0f);
+                aircraft.transform.Rotate(0f, 0.025f, 0f);
             }
             else if (left_stick.x <= 0.6)
             {
-                aircraft.transform.Rotate(0f, 0.1f, 0f);
+                aircraft.transform.Rotate(0f, 0.05f, 0f);
             }
             else
             {
-                aircraft.transform.Rotate(0f, 0.2f, 0f);
+                aircraft.transform.Rotate(0f, 0.1f, 0f);
             }
         }
 
@@ -114,15 +114,15 @@ public class Controller_Mapping : MonoBehaviour
             Debug.Log("right_stick move up");
             if (left_stick.x >= -0.3)
             {
-                aircraft.transform.Rotate(0f, -0.05f, 0f);
+                aircraft.transform.Rotate(0f, -0.025f, 0f);
             }
             else if (left_stick.x >= -0.6)
             {
-                aircraft.transform.Rotate(0f, -0.1f, 0f);
+                aircraft.transform.Rotate(0f, -0.05f, 0f);
             }
             else
             {
-                aircraft.transform.Rotate(0f, -0.2f, 0f);
+                aircraft.transform.Rotate(0f, -0.1f, 0f);
             }
         }
 
@@ -133,28 +133,28 @@ public class Controller_Mapping : MonoBehaviour
             offset = front_end.transform.position - back_end.transform.position;
             if (hand_trigger <= 0.2)
             {
+                aircraft.transform.position += 0.01f * offset;
+                offset *= 0.01f;
+            }
+            else if (hand_trigger <= 0.4)
+            {
                 aircraft.transform.position += 0.02f * offset;
                 offset *= 0.02f;
             }
-            else if (hand_trigger <= 0.4)
+            else if (hand_trigger <= 0.6)
+            {
+                aircraft.transform.position += 0.03f * offset;
+                offset *= 0.03f;
+            }
+            else if (hand_trigger <= 0.8)
             {
                 aircraft.transform.position += 0.04f * offset;
                 offset *= 0.04f;
             }
-            else if (hand_trigger <= 0.6)
-            {
-                aircraft.transform.position += 0.06f * offset;
-                offset *= 0.06f;
-            }
-            else if (hand_trigger <= 0.8)
-            {
-                aircraft.transform.position += 0.08f * offset;
-                offset *= 0.08f;
-            }
             else
             {
-                aircraft.transform.position += 0.1f * offset;
-                offset *= 0.08f;
+                aircraft.transform.position += 0.05f * offset;
+                offset *= 0.05f;
 
             }
 
