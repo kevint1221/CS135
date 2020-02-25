@@ -38,7 +38,7 @@
     - 
 
 
-###functions
+### functions
   - shoot()
     - has effect when hit enenmy
     - can detect if hit enemy
