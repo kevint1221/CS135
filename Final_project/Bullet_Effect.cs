@@ -11,7 +11,7 @@ public class Bullet_Effect : MonoBehaviour
     public GameObject impact_effect; //flare
     public GameObject impact_effect2; //smoke
     public AudioSource asource; //audio object
-	public AudioClip aclip;//audio effect
+    public AudioClip aclip;//audio effect
     
     Vector3 effect_area; //position to make impact_effect and audio effect
 
