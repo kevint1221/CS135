@@ -36,13 +36,12 @@ public class shoot_bullet : MonoBehaviour
             //if(OVRInput.GetDown(OVRInput.RawButton.A))
             {
                 offset = front_end.transform.position - back_end.transform.position;
-                explosion_location = 4 * offset;
                 bullet_position = hitbox.transform.position;// + new Vector3(0f, 0f, 3f);
                 GameObject bullet = Instantiate(bullet_object, bullet_position, Quaternion.identity);
-                bullet.GetComponent<Rigidbody>().velocity = 100f * offset;
-                //AudioSource hit_audio = Instantiate(asource, explosion_location, Quaternion.identity);
+                bullet.GetComponent<Rigidbody>().velocity = 150f * offset;
+                
                 counter = 0.5f;
-                //asource.transform.position = explosion_location;
+                
                 shoot_source.PlayOneShot(shoot_clip); //play sound
                 Destroy(bullet, 2f);
                 
@@ -52,6 +51,9 @@ public class shoot_bullet : MonoBehaviour
         counter -= Time.deltaTime;
         if(global_variable.hit_sound_enable == true)
         {
+            //offset = front_end.transform.position - back_end.transform.position;
+            //explosion_location = 4 * offset;
+            //hit_source.transform.position += explosion_location;
             hit_source.PlayOneShot(hit_clip);
             global_variable.hit_sound_enable = false;
 
