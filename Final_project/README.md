@@ -11,8 +11,8 @@
 ## update: 
 ### patch 2.24
   - added bullet effect
-    - smoke
-    - flare
+  -- smoke
+  - flare
   - added aim scope 
   
   - 
