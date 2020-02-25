@@ -26,6 +26,27 @@
   - add aircraft
   - add scene background (moutain dessert)
   
+###
+  - air 
+  
+  - ground
+    - terrain
+    - tank model
+    - sound source
+    - shot effect
+    - enemy model 
+    - 
+
+
+###functions
+  - shoot()
+    - has effect when hit enenmy
+    - can detect if hit enemy
+  - enemy attack player()
+    - get closer to player
+    - attack player
+   
+
 
 ## Background 
 flying in the sky is everyone’s dream since thousands of years ago. In 1903, the Wright brothers made the first airplane which changed the way humans travel. Traveling anywhere on the earth is no longer a problem. 
