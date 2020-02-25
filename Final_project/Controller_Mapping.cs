@@ -37,13 +37,7 @@ public class Controller_Mapping : MonoBehaviour
             Debug.Log("B");
 
         }
-        //if (OVRInput.GetDown(OVRInput.RawButton.X))
-        
-        //{
-         //   Debug.Log("X");
-
-       // }
-
+ 
         //reset the scene
         if (OVRInput.GetDown(OVRInput.RawButton.Y))
         {
