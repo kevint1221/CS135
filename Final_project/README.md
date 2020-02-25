@@ -10,10 +10,19 @@
 
 ## update 
 ### patch 3 (2/23/2020)
-  - added bullet effect
+  - add bullet effect
     - smoke
     - flare
-  - added aim scope 
+  - add shooting function
+  - add aim scope
+    - rotate aim_scope
+ 
+### patch 2 (2/ 19/2020)
+  - add aircraft rotation function
+ 
+### patch 1 (2/14/2020)
+  - add aircraft
+  - add scene background (moutain dessert)
   
 
 ## Background 
