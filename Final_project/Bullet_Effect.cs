@@ -31,7 +31,7 @@ public class Bullet_Effect : MonoBehaviour
             //Display object name
             Debug.Log(hit.transform.name);
         }
-        effect_area = bullet.transform.position + new Vector3(0f, 2f, 0f);
+        effect_area = bullet.transform.position + new Vector3(0f, 1.5f, 0f);
         //create hit effect
         GameObject impact_object = Instantiate(impact_effect, effect_area, Quaternion.LookRotation(hit.normal));
         GameObject impact_object2 = Instantiate(impact_effect2, effect_area, Quaternion.LookRotation(hit.normal));
