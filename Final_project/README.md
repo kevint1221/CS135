@@ -3,10 +3,10 @@
 ## unity version
   - 2019.3.1f1
 
-## Controller mapping
-  - A:                  shot bullet
+## Controller mapping           
   - Y:                  reset game
   - left_hand:          speed up
+  - right hand          shot bullet
   - left_thumbstick:    rotate aircraft view
   - right_thumbstick:   rotate aim_scope
 
@@ -21,6 +21,7 @@
   - add aim scope
     - rotate aim_scope
   - add shoot audio sound
+  - add hit audio sound
   - add ground scene
  
 ### patch 2 (2/ 19/2020)
