@@ -1,5 +1,7 @@
 # Dogginator 
 
+## unity version
+  - 2019.3.1f1
 
 ## Controller mapping
   - A:                  shot bullet
