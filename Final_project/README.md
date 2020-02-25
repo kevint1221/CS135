@@ -9,7 +9,7 @@
   - right_thumbstick: rotate aim_scope
 
 ## update: 
-  ### patch 2.24:
+### patch 2.24
   - added bullet effect
     - smoke
     - flare
