@@ -11,13 +11,17 @@
   - right_thumbstick:   rotate aim_scope
 
 ## update 
-### patch 3 (2/23/2020)
+
+
+### patch 3 (2/24/2020)
   - add bullet effect
     - smoke
     - flare
   - add shooting function
   - add aim scope
     - rotate aim_scope
+  - add shoot audio sound
+  - add ground scene
  
 ### patch 2 (2/ 19/2020)
   - add aircraft rotation function
