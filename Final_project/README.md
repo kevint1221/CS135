@@ -23,6 +23,7 @@
   - add shoot audio sound
   - add hit audio sound
   - add ground scene
+  - add enemy moving route
  
 ### patch 2 (2/ 19/2020)
   - add aircraft rotation function
