@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -52,22 +52,22 @@ public class Controller_Mapping : MonoBehaviour
 
         //read left thumbstick
         left_stick = OVRInput.Get(OVRInput.RawAxis2D.LThumbstick);
-
+        float scale = 3f;
         //left thumbstick up
         if (left_stick.y > 0.0f)
         {
             Debug.Log("right_stick move up");
             if (left_stick.y <= 0.3)
             {
-                aircraft.transform.Rotate(-0.025f, 0f, 0f);
+                aircraft.transform.Rotate(-scale/40f, 0f, 0f, Space.Self);
             }
             else if (left_stick.y <= 0.6)
             {
-                aircraft.transform.Rotate(-0.05f, 0f, 0f);
+                aircraft.transform.Rotate(-scale/20, 0f, 0f, Space.Self);
             }
             else
             {
-                aircraft.transform.Rotate(-0.1f, 0f, 0f);
+                aircraft.transform.Rotate(-scale/10, 0f, 0f, Space.Self);
             }
         }
         //Debug.Log(front_end.transform.position);
@@ -78,15 +78,15 @@ public class Controller_Mapping : MonoBehaviour
             Debug.Log("right_stick move down");
             if (left_stick.y >= -0.3)
             {
-                aircraft.transform.Rotate(0.025f, 0f, 0f);
+                aircraft.transform.Rotate(scale/40, 0f, 0f, Space.Self);
             }
             else if (left_stick.y >= -0.6)
             {
-                aircraft.transform.Rotate(0.05f, 0f, 0f);
+                aircraft.transform.Rotate(scale/20, 0f, 0f, Space.Self);
             }
             else
             {
-                aircraft.transform.Rotate(0.1f, 0f, 0f);
+                aircraft.transform.Rotate(scale/10, 0f, 0f, Space.Self);
             }
         }
 
@@ -96,15 +96,15 @@ public class Controller_Mapping : MonoBehaviour
             Debug.Log("right_stick move up");
             if (left_stick.x <= 0.3)
             {
-                aircraft.transform.Rotate(0f, 0.025f, 0f);
+                aircraft.transform.Rotate(0f, scale/40, 0f, Space.Self);
             }
             else if (left_stick.x <= 0.6)
             {
-                aircraft.transform.Rotate(0f, 0.05f, 0f);
+                aircraft.transform.Rotate(0f, scale /20, 0f, Space.Self);
             }
             else
             {
-                aircraft.transform.Rotate(0f, 0.1f, 0f);
+                aircraft.transform.Rotate(0f, scale /10, 0f, Space.Self);
             }
         }
 
@@ -114,15 +114,15 @@ public class Controller_Mapping : MonoBehaviour
             Debug.Log("right_stick move up");
             if (left_stick.x >= -0.3)
             {
-                aircraft.transform.Rotate(0f, -0.025f, 0f);
+                aircraft.transform.Rotate(0f, -scale /40, 0f, Space.Self);
             }
             else if (left_stick.x >= -0.6)
             {
-                aircraft.transform.Rotate(0f, -0.05f, 0f);
+                aircraft.transform.Rotate(0f, -scale /20, 0f, Space.Self);
             }
             else
             {
-                aircraft.transform.Rotate(0f, -0.1f, 0f);
+                aircraft.transform.Rotate(0f, -scale /10, 0f, Space.Self);
             }
         }
 
@@ -165,8 +165,8 @@ public class Controller_Mapping : MonoBehaviour
         else
         {
             //keeps going forward from inertia
-            offset = front_end.transform.position - back_end.transform.position;
-            aircraft.transform.position += 0.01f * offset;
+        //    offset = front_end.transform.position - back_end.transform.position;
+        //    aircraft.transform.position += 0.01f * offset;
             
         }
 

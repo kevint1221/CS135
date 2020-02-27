@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -38,8 +38,8 @@ public class Bullet_Effect : MonoBehaviour
         //if the bullet hit the object, make explode sound
         global_variable.hit_sound_enable = true;
         //destroy hit effect after 2second
-        Destroy(impact_object, 4f);
-        Destroy(impact_object2, 4f);
+        Destroy(impact_object, 0.3f);
+        Destroy(impact_object2, 3f);
 
         
        
