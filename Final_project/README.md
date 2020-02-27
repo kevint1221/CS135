@@ -13,6 +13,11 @@
 ## update 
 
 
+### patch 4 (2/27/2020)
+  - add health to enemy
+    - enemy now drop to the ground when destroy
+  - add explosion when enemy destroyed 
+
 ### patch 3 (2/24/2020)
   - add bullet effect
     - smoke
