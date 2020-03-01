@@ -28,11 +28,11 @@ public class enemy_attack : MonoBehaviour
             {
 
                 aim_player = player.transform.position - enemy.transform.position; //vecyor point to player
-                bullet_position = enemy.transform.position + aim_player.normalized *2 ;
-                bullet = Instantiate(bullet_object, bullet_position, Quaternion.identity);
-                bullet.GetComponent<Rigidbody>().velocity = 180f * aim_player;
+               bullet_position = enemy.transform.position + 0.1f * aim_player;
+                GameObject bullet = Instantiate(bullet_object, bullet_position, Quaternion.identity);
+                bullet.GetComponent<Rigidbody>().velocity = aim_player;
                 counter = 2f; //resetS
-                Destroy(bullet, 5f);
+                Destroy(bullet, 4f);
             }
             else
             {
