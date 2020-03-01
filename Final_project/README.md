@@ -17,6 +17,7 @@
   - add health to enemy
     - enemy now drop to the ground when destroy
   - add explosion when enemy destroyed 
+  - enemy attack player when near by
 
 ### patch 3 (2/24/2020)
   - add bullet effect
