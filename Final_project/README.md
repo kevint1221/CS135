@@ -18,6 +18,8 @@
     - enemy now drop to the ground when destroy
   - add explosion when enemy destroyed 
   - enemy attack player when near by
+  - adjust Z-axis after rotating
+  
 
 ### patch 3 (2/24/2020)
   - add bullet effect
