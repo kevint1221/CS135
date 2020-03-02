@@ -19,6 +19,8 @@
   - add explosion when enemy destroyed 
   - enemy attack player when near by
   - adjust Z-axis after rotating
+  - add pointer for shooting
+    - player now use right controller point to enemy to shoot
   
 
 ### patch 3 (2/24/2020)
