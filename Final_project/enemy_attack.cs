@@ -11,7 +11,6 @@ public class enemy_attack : MonoBehaviour
     float counter;
     Vector3 bullet_position;
     Vector3 aim_player;
-    GameObject bullet;
     public GameObject bullet_object;
     void Start()
     {
@@ -22,13 +21,13 @@ public class enemy_attack : MonoBehaviour
     void Update()
     {
         //if player are close in range, attack player
-        if (Vector3.Distance(enemy.transform.position, player.transform.position) <=range)
+        if (Vector3.Distance(enemy.transform.position, player.transform.position) <= range)
         {
             if (counter <= 0)
             {
 
                 aim_player = player.transform.position - enemy.transform.position; //vecyor point to player
-               bullet_position = enemy.transform.position + 0.1f * aim_player;
+                bullet_position = enemy.transform.position + 0.1f * aim_player;
                 GameObject bullet = Instantiate(bullet_object, bullet_position, Quaternion.identity);
                 bullet.GetComponent<Rigidbody>().velocity = aim_player;
                 counter = 2f; //resetS
@@ -39,7 +38,7 @@ public class enemy_attack : MonoBehaviour
                 counter -= Time.deltaTime;
             }
         }
-        
-        
+
+
     }
 }

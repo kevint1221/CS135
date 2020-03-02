@@ -18,12 +18,14 @@ public class shoot_bullet : MonoBehaviour
     Vector3 explosion_location;
     float right_index;
     float counter;
-    GameObject bullet;
+    bool create_bullet;
+    
 
     // Start is called before the first frame update
     void Start()
     {
         counter = 0.5f;
+        create_bullet = false;
     }
 
     // Update is called once per frame
@@ -36,10 +38,14 @@ public class shoot_bullet : MonoBehaviour
             if (right_index > 0.3f)
             //if(OVRInput.GetDown(OVRInput.RawButton.A))
             {
+                //create bullet
+                create_bullet = true;
+
                 offset = front_end.transform.position - back_end.transform.position;
                 bullet_position = hitbox.transform.position;// + new Vector3(0f, 0f, 3f);
-                bullet = Instantiate(bullet_object, bullet_position, Quaternion.identity);
-                bullet.GetComponent<Rigidbody>().velocity = 180f * offset;
+                GameObject bullet = Instantiate(bullet_object, bullet_position, Quaternion.identity);
+                bullet.transform.rotation = hitbox.transform.rotation;
+                bullet.GetComponent<Rigidbody>().velocity = 500f * offset;
                 
                 counter = 0.5f;
                 
@@ -50,13 +56,14 @@ public class shoot_bullet : MonoBehaviour
             
         }
         counter -= Time.deltaTime;
+
         if(global_variable.hit_sound_enable == true)
         {
             //offset = front_end.transform.position - back_end.transform.position;
             //explosion_location = 4 * offset;
             //hit_source.transform.position += explosion_location;
             hit_source.PlayOneShot(hit_clip);
-            Destroy(bullet);
+            //Destroy(bullet);
             global_variable.hit_sound_enable = false;
             
 

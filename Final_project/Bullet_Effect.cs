@@ -17,11 +17,19 @@ public class Bullet_Effect : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        Hit_object();
+        Debug.Log("you hit: ");
+        Debug.Log(other.gameObject.name);
+        if (other.gameObject.name != "Stealth_Bomber")
+        {
+            Hit_object();
+            Destroy(bullet);
+
+        }
+        
     }
 
 
-    void Hit_object()
+void Hit_object()
     {
         //hitted object
         RaycastHit hit;
@@ -29,12 +37,13 @@ public class Bullet_Effect : MonoBehaviour
         if (Physics.Raycast(bullet.transform.position, bullet.transform.forward, out hit, range))
         {
             //Display object name
-            Debug.Log(hit.transform.name);
+           // Debug.Log(hit.transform.name);
         }
+        
         effect_area = bullet.transform.position + new Vector3(0f, 1.5f, 0f);
         //create hit effect
-        GameObject impact_object = Instantiate(impact_effect, effect_area, Quaternion.LookRotation(hit.normal));
-        GameObject impact_object2 = Instantiate(impact_effect2, effect_area, Quaternion.LookRotation(hit.normal));
+        GameObject impact_object = Instantiate(impact_effect, effect_area, Quaternion.identity);
+        GameObject impact_object2 = Instantiate(impact_effect2, effect_area, Quaternion.identity);
         //if the bullet hit the object, make explode sound
         global_variable.hit_sound_enable = true;
         //destroy hit effect after 2second

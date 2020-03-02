@@ -10,13 +10,14 @@ public class Controller_Mapping : MonoBehaviour
     Vector3 offset;
     Vector2 left_stick;
     float hand_trigger;
+    float counter;
 
     // Start is called before the first frame update
     void Start()
     {
         Debug.Log("hello");
         offset = new Vector3(0f, 0f, 0f);
-
+        counter = 5f;
     }
 
     // Update is called once per frame
@@ -26,17 +27,18 @@ public class Controller_Mapping : MonoBehaviour
         //Debug.Log(OVRInput.Axis2D.SecondaryThumbstick);
         
 
-        if (OVRInput.GetDown(OVRInput.RawButton.A))
-        {
-            Debug.Log("A");
-
-        }
         
-        if (OVRInput.GetDown(OVRInput.RawButton.B))
-        {
-            Debug.Log("B");
+        //if (OVRInput.GetDown(OVRInput.RawButton.A))
+        //{
+           // Debug.Log("A");
 
-        }
+       // }
+        
+     //   if (OVRInput.GetDown(OVRInput.RawButton.B))
+       // {
+           // Debug.Log("B");
+
+     //   }
         //if (OVRInput.GetDown(OVRInput.RawButton.X))
         
         //{
@@ -52,11 +54,11 @@ public class Controller_Mapping : MonoBehaviour
 
         //read left thumbstick
         left_stick = OVRInput.Get(OVRInput.RawAxis2D.LThumbstick);
-        float scale = 3f;
+        float scale = 1f;
         //left thumbstick up
         if (left_stick.y > 0.0f)
         {
-            Debug.Log("right_stick move up");
+            //Debug.Log("right_stick move up");
             if (left_stick.y <= 0.3)
             {
                 aircraft.transform.Rotate(-scale/40f, 0f, 0f, Space.Self);
@@ -75,7 +77,7 @@ public class Controller_Mapping : MonoBehaviour
         //left thumbstick down
         if (left_stick.y < 0.0f)
         {
-            Debug.Log("right_stick move down");
+           // Debug.Log("right_stick move down");
             if (left_stick.y >= -0.3)
             {
                 aircraft.transform.Rotate(scale/40, 0f, 0f, Space.Self);
@@ -93,7 +95,7 @@ public class Controller_Mapping : MonoBehaviour
         //left thumbstick right
         if (left_stick.x > 0.0f)
         {
-            Debug.Log("right_stick move up");
+           // Debug.Log("right_stick move up");
             if (left_stick.x <= 0.3)
             {
                 aircraft.transform.Rotate(0f, scale/40, 0f, Space.Self);
@@ -111,7 +113,7 @@ public class Controller_Mapping : MonoBehaviour
         //left thumbstick left
         if (left_stick.x < 0.0f)
         {
-            Debug.Log("right_stick move up");
+            //Debug.Log("right_stick move up");
             if (left_stick.x >= -0.3)
             {
                 aircraft.transform.Rotate(0f, -scale /40, 0f, Space.Self);
@@ -170,7 +172,41 @@ public class Controller_Mapping : MonoBehaviour
             
         }
 
-      
+        //fix angle issue with Z axis
+        Debug.Log(aircraft.transform.eulerAngles.z);
+
+        //player not moving left stick
+        if(counter <= 0)
+        {
+            if (left_stick.x == 0f && left_stick.y == 0f)
+            {
+                //adjust z axis
+                //if(360f - aircraft.transform.eulerAngles.z != 0f)
+                //{
+                float angle_offset = 360f - aircraft.transform.eulerAngles.z;
+                if (Mathf.Abs(360f - aircraft.transform.eulerAngles.z) > 2)
+                {
+                    if (aircraft.transform.eulerAngles.z > 300) 
+                    {
+                        //counterclockwise
+                        aircraft.transform.Rotate(0f, 0f, 0.01f * angle_offset);
+                        
+                    }
+                    else
+                    {
+                        //clockwise
+                        aircraft.transform.Rotate(0f, 0f, 0.0001f * -angle_offset); //not sure why clockwise is faster than counter clock
+                    }
+                    
+
+                }
+
+                //}
+            }
+            
+        }
+        counter -= Time.deltaTime;
+       
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
