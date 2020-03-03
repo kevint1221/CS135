@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class enemy_route : MonoBehaviour
 {
     // Start is called before the first frame update
     public GameObject enemy_route_point;
+    
     int route_state;
     void Start()
     {

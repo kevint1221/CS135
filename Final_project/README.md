@@ -12,6 +12,9 @@
 
 ## update 
 
+### patch 5 (3/2/2020)
+  - add vibrate when shoot
+  - add flight sound when get close to enenmy
 
 ### patch 4 (2/27/2020)
   - add health to enemy

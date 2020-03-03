@@ -54,7 +54,7 @@ public class Controller_Mapping : MonoBehaviour
 
         //read left thumbstick
         left_stick = OVRInput.Get(OVRInput.RawAxis2D.LThumbstick);
-        float scale = 1f;
+        float scale = 1f; //1 is default for normal people
         //left thumbstick up
         if (left_stick.y > 0.0f)
         {
@@ -129,33 +129,35 @@ public class Controller_Mapping : MonoBehaviour
         }
 
         //going foward
+
+        float forward_scale = 0.01f;  //0.01 is default
         hand_trigger = OVRInput.Get(OVRInput.RawAxis1D.LHandTrigger);
         if (hand_trigger > 0f)
         {
             offset = front_end.transform.position - back_end.transform.position;
             if (hand_trigger <= 0.2)
             {
-                aircraft.transform.position += 0.02f * offset;
+                aircraft.transform.position += forward_scale * 2 * offset;
                
             }
             else if (hand_trigger <= 0.4)
             {
-                aircraft.transform.position += 0.03f * offset;
+                aircraft.transform.position += forward_scale * 3 * offset;
                 
             }
             else if (hand_trigger <= 0.6)
             {
-                aircraft.transform.position += 0.04f * offset;
+                aircraft.transform.position += forward_scale * 4 * offset;
                 
             }
             else if (hand_trigger <= 0.8)
             {
-                aircraft.transform.position += 0.05f * offset;
+                aircraft.transform.position += forward_scale * 5 * offset;
                 
             }
             else
             {
-                aircraft.transform.position += 0.06f * offset;
+                aircraft.transform.position += forward_scale * 6 * offset;
                 
 
             }
@@ -167,8 +169,8 @@ public class Controller_Mapping : MonoBehaviour
         else
         {
             //keeps going forward from inertia
-        //    offset = front_end.transform.position - back_end.transform.position;
-        //    aircraft.transform.position += 0.01f * offset;
+            offset = front_end.transform.position - back_end.transform.position;
+            aircraft.transform.position += 0.01f * offset;
             
         }
 

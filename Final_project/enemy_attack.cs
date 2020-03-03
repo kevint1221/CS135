@@ -7,11 +7,13 @@ public class enemy_attack : MonoBehaviour
     // Start is called before the first frame update
     public GameObject player;
     public GameObject enemy;
-    float range = 100f;
+    float range = 50f;
     float counter;
     Vector3 bullet_position;
     Vector3 aim_player;
     public GameObject bullet_object;
+    public AudioSource airplane_source; //audio object
+    public AudioClip airplane_clip;//audio effect
     void Start()
     {
         counter = 2f; //attack every time second
@@ -31,6 +33,7 @@ public class enemy_attack : MonoBehaviour
                 GameObject bullet = Instantiate(bullet_object, bullet_position, Quaternion.identity);
                 bullet.GetComponent<Rigidbody>().velocity = aim_player;
                 counter = 2f; //resetS
+                airplane_source.PlayOneShot(airplane_clip); //play sound
                 Destroy(bullet, 4f);
             }
             else
