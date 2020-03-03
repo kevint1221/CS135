@@ -6,9 +6,10 @@
 ## Controller mapping           
   - Y:                  reset game
   - left_hand:          speed up
-  - right hand          shot bullet
+  - right trigger       shot bullet
   - left_thumbstick:    rotate aircraft view
-  - right_thumbstick:   rotate aim_scope
+  - right controller:   pointer to enemy
+  - left start:         Menu UI
 
 ## update 
 
