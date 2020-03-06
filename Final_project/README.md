@@ -3,6 +3,16 @@
 ## unity version
   - 2019.3.1f1
 
+## TO DO LIST
+  - grab object with getComponent<>()
+  - adddiffernt weapon
+  - add menu options
+  - create enemy
+  - start game menu
+  - add more sound effect
+  
+
+
 ## Controller mapping           
   - Y:                  reset game
   - left_hand:          speed up
