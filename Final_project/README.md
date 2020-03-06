@@ -11,6 +11,7 @@
   - create enemy
   - start game menu
   - add more sound effect
+  - add describtion of button when game is paused
   
 
 
