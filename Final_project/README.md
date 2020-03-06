@@ -52,6 +52,8 @@
   
 ### mode
   - air 
+    - dead mountain
+    - lake hill
   
   - ground
     - terrain
