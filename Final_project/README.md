@@ -19,6 +19,7 @@
   - add lake scene
   - add pause game menu UI
   - add enemy for scene grass hill
+  - add level_2 enemy for scene grass
 
 ### patch 4 (2/27/2020)
   - add health to enemy
