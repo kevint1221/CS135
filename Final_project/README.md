@@ -5,6 +5,7 @@
 
 ## TO DO LIST
   - grab object with getComponent<>()
+  - get reference component using Find()
   - adddiffernt weapon
   - add menu options
   - create enemy
