@@ -7,10 +7,16 @@ public class Controller_Mapping : MonoBehaviour
     public GameObject aircraft;
     public GameObject front_end;
     public GameObject back_end;
+    public GameObject canvas;
+    public GameObject pointer;
+
+    public string health_script;// your second script name 
+
     Vector3 offset;
     Vector2 left_stick;
     float hand_trigger;
     float counter;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -52,6 +58,38 @@ public class Controller_Mapping : MonoBehaviour
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
 
+
+        float keyboard_scale = 5f;
+        float keyboard_forward_scale = 0.05f;
+        Vector3 keyboard_offset  = front_end.transform.position - back_end.transform.position;
+        /////keyboard control
+        if (Input.GetKey("w"))
+        {
+            aircraft.transform.Rotate(-keyboard_scale / 10, 0f, 0f, Space.Self);
+        }
+        if (Input.GetKey("s"))
+        {
+            aircraft.transform.Rotate(keyboard_scale / 10, 0f, 0f, Space.Self);
+        }
+        if (Input.GetKey("a"))
+        {
+            aircraft.transform.Rotate(0f, -keyboard_scale / 10, 0f, Space.Self);
+        }
+        if (Input.GetKey("d"))
+        {
+            aircraft.transform.Rotate(0f, keyboard_scale / 10, 0f, Space.Self);
+        }
+        if (Input.GetKey("space"))
+        {
+            aircraft.transform.position += keyboard_forward_scale * 6 * keyboard_offset;
+        }
+        if (Input.GetKey("h"))
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
+
+
+
         //read left thumbstick
         left_stick = OVRInput.Get(OVRInput.RawAxis2D.LThumbstick);
         float scale = 1f; //1 is default for normal people
@@ -72,10 +110,13 @@ public class Controller_Mapping : MonoBehaviour
                 aircraft.transform.Rotate(-scale/10, 0f, 0f, Space.Self);
             }
         }
-        //Debug.Log(front_end.transform.position);
 
-        //left thumbstick down
-        if (left_stick.y < 0.0f)
+        
+
+            //Debug.Log(front_end.transform.position);
+
+            //left thumbstick down
+            if (left_stick.y < 0.0f)
         {
            // Debug.Log("right_stick move down");
             if (left_stick.y >= -0.3)
@@ -169,13 +210,13 @@ public class Controller_Mapping : MonoBehaviour
         else
         {
             //keeps going forward from inertia
-            offset = front_end.transform.position - back_end.transform.position;
-            aircraft.transform.position += 0.01f * offset;
+           //// offset = front_end.transform.position - back_end.transform.position;
+            //// aircraft.transform.position += 0.01f * offset;
             
         }
 
         //fix angle issue with Z axis
-        Debug.Log(aircraft.transform.eulerAngles.z);
+       // Debug.Log(aircraft.transform.eulerAngles.z);
 
         //player not moving left stick
         if(counter <= 0)
@@ -209,6 +250,22 @@ public class Controller_Mapping : MonoBehaviour
         }
         counter -= Time.deltaTime;
        
+
+        if(OVRInput.GetDown(OVRInput.RawButton.Start))
+        {
+            if (canvas.activeSelf == false)
+            {
+                canvas.SetActive(true);
+                pointer.SetActive(true);
+                Time.timeScale = 0.2f;
+                (aircraft.GetComponent(health_script) as MonoBehaviour).enabled = false;
+            }
+
+            
+               
+        }
+
+
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {

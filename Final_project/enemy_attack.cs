@@ -5,35 +5,45 @@ using UnityEngine;
 public class enemy_attack : MonoBehaviour
 {
     // Start is called before the first frame update
-    public GameObject player;
-    public GameObject enemy;
-    float range = 50f;
+    GameObject player;
+    
+    public float min_dist;
     float counter;
     Vector3 bullet_position;
     Vector3 aim_player;
     public GameObject bullet_object;
-    public AudioSource airplane_source; //audio object
-    public AudioClip airplane_clip;//audio effect
+    float plane_size; //0.5 for big aircraft  , this is the position of bullet initiate
+    float bullet_speed;
+    
+
+    
     void Start()
     {
-        counter = 2f; //attack every time second
+        player = GameObject.Find("Stealth_Bomber");
+        counter = this.GetComponent<EnemyStats>().attack_speed; //attack every time second
+        bullet_speed = this.GetComponent<EnemyStats>().bullet_speed; //attack every time second
+        plane_size = this.GetComponent<EnemyStats>().plane_size; //attack every time second
+        //Debug.Log(bullet_speed);
+
     }
 
     // Update is called once per frame
     void Update()
     {
         //if player are close in range, attack player
-        if (Vector3.Distance(enemy.transform.position, player.transform.position) <= range)
+        if (Vector3.Distance(this.transform.position, player.transform.position) <= min_dist)
         {
             if (counter <= 0)
             {
 
-                aim_player = player.transform.position - enemy.transform.position; //vecyor point to player
-                bullet_position = enemy.transform.position + 0.1f * aim_player;
+                aim_player = player.transform.position - this.transform.position; //vecyor point to player
+                bullet_position = this.transform.position + plane_size * aim_player;
                 GameObject bullet = Instantiate(bullet_object, bullet_position, Quaternion.identity);
-                bullet.GetComponent<Rigidbody>().velocity = aim_player;
-                counter = 2f; //resetS
-                airplane_source.PlayOneShot(airplane_clip); //play sound
+                bullet.GetComponent<Bullet_Effect>().damage = this.GetComponent<EnemyStats>().damage;
+                bullet.transform.rotation = this.transform.rotation;
+                bullet.GetComponent<Rigidbody>().velocity = bullet_speed * aim_player;
+                counter = this.GetComponent<EnemyStats>().attack_speed; //attack every time second; //resetS
+
                 Destroy(bullet, 4f);
             }
             else

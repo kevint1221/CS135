@@ -32,6 +32,7 @@
   - add pause game menu UI
   - add enemy for scene grass hill
   - add level_2 enemy for scene grass
+  - add enemy class
 
 ### patch 4 (2/27/2020)
   - add health to enemy

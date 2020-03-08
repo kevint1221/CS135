@@ -16,6 +16,7 @@ public class shoot_bullet : MonoBehaviour
     public AudioClip hit_clip;
     public GameObject shoot_effect;
     public GameObject gun_front_end;
+    public AudioClip quack_clip;
 
     Vector3 bullet_position;
     Vector3 offset;
@@ -30,7 +31,7 @@ public class shoot_bullet : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        bullet_counter = 0.5f;
+        bullet_counter = player_stats.attack_speed;
         
         
     }
@@ -85,8 +86,13 @@ public class shoot_bullet : MonoBehaviour
             hit_source.PlayOneShot(hit_clip);
             //Destroy(bullet);
             global_variable.hit_sound_enable = false;
-            
 
+        }
+        if(global_variable.hit_goat == true)
+        {
+            hit_source.PlayOneShot(quack_clip);
+            //Destroy(bullet);
+            global_variable.hit_goat = false;
         }
         //bullet.transform.position += offset;
 
