@@ -12,7 +12,20 @@
   - start game menu
   - add more sound effect
   - add describtion of button when game is paused
-  
+
+## SCRIPT FUNCTION
+  - Bullet_effect:        create visual effect when bullet hit enemy or object
+  - Controller_mapping:   all the mapping to oculus controller and keyboard for testing
+  - EnemyGenerator:       generate enemy with different level and response time
+  - EnemyStats:           store all the enemies stats such as damage, attack speed, bullet travel speed, health etc
+  - ambient_sound:        create audio sound for player when enemy near by
+  - chase_player:         move toward player/object with desire movement speed
+  - enemy_attack:         attack player, get enemy stats and create bullet
+  - enemy_route:          create enemy travel path
+  - global_variable:      variable that can be control through entire game
+  - shoot_bullet:         player can shoot bullet with desire sound/visual effect/shoot speed. Also control many audio such as hit sound
+  - stay_around_player:   move toward player, and keep in certain distance
+  - 
 
 
 ## Controller mapping           
