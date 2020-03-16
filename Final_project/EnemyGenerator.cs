@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemyGenerator : MonoBehaviour
 {
+    // the enemy you wanna response
     public GameObject lv1_minion;
     public GameObject lv1_cannon;
     public GameObject lv2_minion;
@@ -12,17 +13,19 @@ public class EnemyGenerator : MonoBehaviour
     public GameObject lv3_cannon; //sheep
     public GameObject lv4_minion;//sheep
     public GameObject boss;
-    float response_time;
-    float delta;
-    int number_enemy;
+    //            ///////////////////////////////
+
+    float response_time; //time to response an enemy
+    float delta; //time
+    int number_enemy; //
     bool boss_response;
     // Start is called before the first frame update
     void Start()
     {
         response_time = 5f;
         delta = 0;
-        number_enemy = 0;
-        boss_response = true;
+        number_enemy = 0;   //maximu number of minion
+        boss_response = true; //response boss
 
     }
 
@@ -30,14 +33,15 @@ public class EnemyGenerator : MonoBehaviour
     void Update()
     {
 
-        this.delta += Time.deltaTime;
-        if (delta > response_time)
+        this.delta += Time.deltaTime; 
+
+        if (delta > response_time)  //response an enemy
         {
             delta = 0;
-            if (global_variable.level == 1)
+            if (global_variable.level == 1)    //level 
             {
                 
-                if (number_enemy == 0)
+                if (number_enemy == 0) //response cannon
                 {
                     //sponse cannnon
                     GameObject enemy = Instantiate(lv1_cannon) as GameObject;   //use as GameOjbect to convert object to gameobject
@@ -47,8 +51,8 @@ public class EnemyGenerator : MonoBehaviour
                     number_enemy++;
 
                 }
-                /*
-                else if (number_enemy < 3)
+                
+                else if (number_enemy < 3) //resonse minion
                 {
                     GameObject enemy = Instantiate(lv1_minion) as GameObject; //use as GameOjbect to convert object to gameobject
                     float x = Random.Range(-200, 200); //this is the x range of terrian
@@ -56,7 +60,7 @@ public class EnemyGenerator : MonoBehaviour
                     enemy.transform.position = new Vector3(x, 200, z); //enemy response position
                     number_enemy++;
                 }
-                */
+                
             }
             else if (global_variable.level == 2)
             {
