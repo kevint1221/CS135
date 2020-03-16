@@ -38,6 +38,20 @@
 
 ## update 
 
+### patch 6 (3/16/2020)
+  - add enemy generator
+  - add enemies for different level
+    - boss
+    - lv3 cannon
+    - lv2 cannon
+  - create spin route for lv1 enemies
+  - adjust shoot path
+  - adjust enemy stats
+  - add different audio when bullet hit enemy/user/terrain
+  - create prefab for different level of enemies
+  - add unique sound when sheep die/hit
+  - remove player's aircraft for easy visualization
+
 ### patch 5 (3/2/2020)
   - add vibrate when shoot
   - add flight sound when get close to enenmy
