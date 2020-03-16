@@ -17,6 +17,8 @@ public class shoot_bullet : MonoBehaviour
     public GameObject shoot_effect;
     public GameObject gun_front_end;
     public AudioClip quack_clip;
+    public AudioClip under_attack;
+    public AudioClip hit_terrain;
 
     Vector3 bullet_position;
     Vector3 offset;
@@ -49,7 +51,7 @@ public class shoot_bullet : MonoBehaviour
                 
 
                 offset = front_end.transform.position - back_end.transform.position;
-                bullet_position = hitbox.transform.position;// + new Vector3(0f, 0f, 3f);
+                bullet_position = hitbox.transform.position + 42 * offset;  //42 is good for not shooting myself and not too far
                 GameObject bullet = Instantiate(bullet_object, bullet_position, Quaternion.identity);
                 bullet.transform.rotation = hitbox.transform.rotation;
                 bullet.GetComponent<Rigidbody>().velocity = 500f * offset;
@@ -93,6 +95,16 @@ public class shoot_bullet : MonoBehaviour
             hit_source.PlayOneShot(quack_clip);
             //Destroy(bullet);
             global_variable.hit_goat = false;
+        }
+        if (global_variable.under_attack == true)
+        {
+            hit_source.PlayOneShot(under_attack);
+            global_variable.under_attack = false;
+        }
+        if (global_variable.hit_terrain == true)
+        {
+            hit_source.PlayOneShot(hit_terrain);
+            global_variable.hit_terrain = false;
         }
         //bullet.transform.position += offset;
 

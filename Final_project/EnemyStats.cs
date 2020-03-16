@@ -9,7 +9,8 @@ public enum Enemy_Level // Options for the engine audio
     level1_Cannon,// 
     level2_minion, // normal ship
     level2_cannon, //bigger one
-    level3_cannon //sheep
+    level3_cannon, //sheep
+    boss,          //cow
 
 }
 
@@ -35,10 +36,12 @@ public class EnemyStats : MonoBehaviour
             case Enemy_Level.level1_Cannon:
                 health = 20f;
                 damage = 10f;
-                attack_speed = 2f;
+                attack_speed = 3f;
                 attack_range = 20f;
-                player_range = 20f;
-                bullet_speed = 0.4f;
+                player_range = 40f;
+                bullet_speed = 1.2f;
+                plane_size = 0.3f; //0.5 default
+                
                 break;
             case Enemy_Level.level2_minion:
                 health = 30f;
@@ -50,18 +53,29 @@ public class EnemyStats : MonoBehaviour
             case Enemy_Level.level2_cannon:
                 health = 50f;
                 damage = 20f;
-                attack_speed = 1f; //default is 3
+                attack_speed = 3f; //default is 3
                 attack_range = 40f;
-                player_range = 200f;
+                player_range = 300f;
                 bullet_speed = 0.6f;
-                plane_size = 0; //0.5 default
+                plane_size = 0.9f; //0.5 default
                 break;
             case Enemy_Level.level3_cannon:
                 health = 30f;
-                damage = 15f;
-                attack_speed = 2f;
-                attack_range = 10f;
-                player_range = 10f;
+                damage = 20f;
+                attack_speed = 3f; //default is 3
+                attack_range = 40f;
+                player_range = 200f;
+                bullet_speed = 0.6f;
+                plane_size = 0.5f; //0.5 default
+                break;
+            case Enemy_Level.boss:
+                health = 200f;
+                damage = 10f;
+                attack_speed = 1f; //default is 3
+                attack_range = 40f;
+                player_range = 400f;
+                bullet_speed = 1.5f;
+                plane_size = 0.8f; //0.5 default
                 break;
             default:
                 break;

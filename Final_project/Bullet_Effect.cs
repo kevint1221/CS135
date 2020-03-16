@@ -5,7 +5,7 @@ using UnityEngine;
 public class Bullet_Effect : MonoBehaviour
 {
     // Start is called before the first frame update
-    public GameObject bullet; //sphere in this case
+    GameObject bullet; //sphere in this case
     public float damage;
     public float range = 100f;
     public GameObject impact_effect; //flare
@@ -17,17 +17,21 @@ public class Bullet_Effect : MonoBehaviour
 
     Vector3 effect_area; //position to make impact_effect and audio effect
 
+    void Start()
+    {
+        bullet = this.gameObject; 
+    }
     void OnTriggerEnter(Collider other)
     {
-        //Debug.Log("you hit: ");
+       //Debug.Log("you hit: ");
         //Debug.Log(other.gameObject.name);
         //if (other.gameObject.name != "Stealth_Bomber")
-       // {
+        //{
             object_hit = other.gameObject;
             Hit_object();
            // Debug.Log(damage);
             Destroy(bullet);
-     //   }
+       // }
       
 
         
@@ -36,6 +40,7 @@ public class Bullet_Effect : MonoBehaviour
 
 void Hit_object()
     {
+        
         //hitted object
         RaycastHit hit;
         //if hit the object
@@ -52,10 +57,18 @@ void Hit_object()
         impact_object.transform.parent = object_hit.transform;
         impact_object2.transform.parent = object_hit.transform;
         //if the bullet hit the object, make explode sound
-        if(object_hit.name == "enemy_lv3")
+        if (object_hit.name == "lv3_cannon" || object_hit.name == "lv3_cannon(Clone)")
         {
             global_variable.hit_goat = true;
 
+        }
+        else if (object_hit.name == "Stealth_Bomber")
+        {
+            global_variable.under_attack = true;
+        }
+        else if (object_hit.name.Contains("Terrain") )
+        {
+            global_variable.hit_terrain = true;
         }
         else
         {

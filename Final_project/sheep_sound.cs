@@ -16,14 +16,15 @@ public class sheep_sound : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(global_variable.goat_lv2_circle_alive == false)
+        if(global_variable.goat_scream == true)
         {
-            if(goat_dead == false)
-            {
-                goat_audio_source.PlayOneShot(goat_sclip);
-                goat_dead = true;
-            }
-            
+            //if(goat_dead == false)
+            //{
+            this.goat_audio_source.PlayOneShot(goat_sclip);
+            global_variable.goat_scream = false;
+            //goat_dead = true;
+            //}
+
         }
     }
 

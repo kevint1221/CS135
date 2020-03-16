@@ -12,7 +12,16 @@ public class chase_player : MonoBehaviour
     float max_dist = 10f;
     float min_dist = 50f;
 
-    
+
+    void Start()
+    {
+        if(enemy.gameObject.name == "lv3_cannon" || enemy.gameObject.name == "lv3_cannon(Clone)")
+        {
+            chase_point = GameObject.Find("chase_point");
+        }
+        
+        
+    }
     // Update is called once per frame
     void Update()
     {

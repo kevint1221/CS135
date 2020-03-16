@@ -13,6 +13,7 @@ public class enemy_health : MonoBehaviour
 
     public string chase;// your second script name 
     public string enemy_attack;// your second script name 
+    bool dead;
 
 
     // Start is called before the first frame update
@@ -20,6 +21,7 @@ public class enemy_health : MonoBehaviour
     {
         alive = true;
         add_kill = true;
+        dead = false;
     }
 
     // Update is called once per frame
@@ -46,9 +48,14 @@ public class enemy_health : MonoBehaviour
                     //Debug.Log(global_variable.enemy_kill);
                 }
             }
-            if(this.gameObject.name == "enemy_lv3")
+            if(this.gameObject.name == "lv3_cannon" || this.gameObject.name == "lv3_cannon(Clone)")
             {
-                global_variable.goat_lv2_circle_alive = false;
+                if(dead == false)
+                {
+                    global_variable.goat_scream = true;
+                    dead = true;
+                }
+                
             }
             
             Destroy(this.gameObject, 10f); //make sure to do this.gameobject

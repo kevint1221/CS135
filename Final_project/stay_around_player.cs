@@ -5,7 +5,7 @@ using UnityEngine;
 public class stay_around_player : MonoBehaviour
 {
     int level;
-    public GameObject player;
+     GameObject player;
     public GameObject chase_point;
     public GameObject sheep; // level 3
     
@@ -17,21 +17,23 @@ public class stay_around_player : MonoBehaviour
     void Start()
     {
         level = global_variable.level;
+        player = GameObject.Find("Stealth_Bomber");
+        min_dist = this.GetComponent<EnemyStats>().player_range;
     }
 
     // Update is called once per frame
     void Update()
     {
 
-        if (level == 2)
-        {
+        //if (level == 1)
+       // {
             this.transform.LookAt(player.transform);
             if (Vector3.Distance(this.transform.position, player.transform.position) >= min_dist)
             {
                 this.transform.position += this.transform.forward * move_speed * Time.deltaTime;
             }
            
-        }
+    //    }
      
            
             
