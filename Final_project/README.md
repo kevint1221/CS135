@@ -12,6 +12,9 @@
   - start game menu
   - add more sound effect
   - add describtion of button when game is paused
+  - add game start menu scene
+  - add audio sound for boss level
+  - adjsut all enemies for each level
 
 ## SCRIPT FUNCTION
   - Bullet_effect:        create visual effect when bullet hit enemy or object
