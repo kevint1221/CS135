@@ -53,9 +53,9 @@ public class enemy_attack : MonoBehaviour
                 GameObject bullet = Instantiate(bullet_object, bullet_position, Quaternion.identity);
                 bullet.GetComponent<Bullet_Effect>().damage = this.GetComponent<EnemyStats>().damage;
                 bullet.transform.rotation = this.transform.rotation;
-                if(this.gameObject.name == "boss")
+                if(this.gameObject.name == "boss" || this.gameObject.name == "boss(Clone)")
                 {
-                    bullet.GetComponent<Rigidbody>().velocity = 70 * bullet_speed * (aim_player.normalized - new Vector3(0, 0.15f, 0));
+                    bullet.GetComponent<Rigidbody>().velocity = 30 * bullet_speed * (aim_player.normalized - new Vector3(0, 0.15f, 0));
                 }
                 else
                 {

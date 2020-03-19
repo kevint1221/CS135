@@ -14,15 +14,17 @@ public class global_variable : MonoBehaviour
     public static int level;
     public GameObject sheep;
     public static bool hit_terrain;
+    public static bool cow_scream;
     void Start()
     {
         hit_sound_enable = false;
         pause_game = false;
-        enemy_kill = 3;
+        enemy_kill = 16;
         goat_scream = false;
         hit_goat = false;
         level = 1;
         under_attack = false;
+        cow_scream = false;
     }
 
     // Update is called once per frame

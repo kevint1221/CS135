@@ -19,6 +19,14 @@ public class chase_player : MonoBehaviour
         {
             chase_point = GameObject.Find("chase_point");
         }
+        else if (enemy.gameObject.name == "lv1_minion(Clone)" || enemy.gameObject.name == "lv1_minion")
+        {
+            chase_point = GameObject.Find("spin point");
+        }
+        else if (enemy.gameObject.name == "lv1_cannon(Clone)" || enemy.gameObject.name == "lv1_cannon")
+        {
+            chase_point = GameObject.Find("z spin");
+        }
         
         
     }

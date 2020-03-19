@@ -54,17 +54,18 @@ public class shoot_bullet : MonoBehaviour
                 bullet_position = hitbox.transform.position + 42 * offset;  //42 is good for not shooting myself and not too far
                 GameObject bullet = Instantiate(bullet_object, bullet_position, Quaternion.identity);
                 bullet.transform.rotation = hitbox.transform.rotation;
-                bullet.GetComponent<Rigidbody>().velocity = 500f * offset;
+                bullet.GetComponent<Rigidbody>().velocity = 1000f * offset;
 
                 //create visual effect when shoot
                 Vector3 effect_area = gun_front_end.transform.position + 0.1f * gun_front_end.transform.forward;
                 //gun_front_end.transform.forward;
                 GameObject effect_object = Instantiate(shoot_effect, effect_area, Quaternion.identity);
+                effect_object.transform.parent = gun_front_end.transform;
                 Destroy(effect_object, 0.1f);
                 //create vibration
                 Shoot_vibrate();
                 
-                bullet_counter = 0.5f;
+                bullet_counter = 0.3f;
                 
                 shoot_source.PlayOneShot(shoot_clip); //play sound
                 Destroy(bullet, 5f);

@@ -22,6 +22,7 @@ public class enemy_health : MonoBehaviour
         alive = true;
         add_kill = true;
         dead = false;
+        health = this.GetComponent<EnemyStats>().health;
     }
 
     // Update is called once per frame
@@ -39,23 +40,50 @@ public class enemy_health : MonoBehaviour
 
             (this.GetComponent(enemy_attack) as MonoBehaviour).enabled = false; //turn off enemy attack so it die won't attack
             alive = false;
-            if (alive == false)
-            {
-                if(add_kill == true)
-                {
-                    global_variable.enemy_kill++;
-                    add_kill = false;
-                    //Debug.Log(global_variable.enemy_kill);
-                }
-            }
+
             if(this.gameObject.name == "lv3_cannon" || this.gameObject.name == "lv3_cannon(Clone)")
             {
-                if(dead == false)
+                if(alive == false)
                 {
-                    global_variable.goat_scream = true;
-                    dead = true;
+                    if(add_kill == true)
+                    {
+                        global_variable.goat_scream = true;
+                        global_variable.enemy_kill++;
+                        add_kill = false;
+                        Debug.Log("you kill an enemy, enemy kill is ");
+                        Debug.Log(global_variable.enemy_kill);
+                    }
+                    
                 }
-                
+            }
+            else  if (this.gameObject.name == "boss" || this.gameObject.name == "boss(Clone)")
+            {
+                if (alive == false)
+                {
+                    if (add_kill == true)
+                    {
+                        global_variable.cow_scream = true;
+                        global_variable.enemy_kill++;
+                        add_kill = false;
+                        Debug.Log("you kill an enemy, enemy kill is ");
+                        Debug.Log(global_variable.enemy_kill);
+                    }
+
+                }
+            }
+            else
+            {
+                if (alive == false)
+                {
+                    if (add_kill == true)
+                    {
+                        global_variable.enemy_kill++;
+                        add_kill = false;
+                        //Debug.Log(global_variable.enemy_kill);
+                        Debug.Log("you kill an enemy, enemy kill is ");
+                        Debug.Log(global_variable.enemy_kill);
+                    }
+                }
             }
             
             Destroy(this.gameObject, 10f); //make sure to do this.gameobject
@@ -66,7 +94,7 @@ public class enemy_health : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         health -= 10;
-        Debug.Log("lose health");
+        //Debug.Log("lose health");
         if(health <=0)
         {
             

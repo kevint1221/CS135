@@ -39,8 +39,8 @@ public class EnemyStats : MonoBehaviour
                 attack_speed = 3f;
                 attack_range = 20f;
                 player_range = 40f;
-                bullet_speed = 1.2f;
-                plane_size = 0.3f; //0.5 default
+                bullet_speed = 0.6f;
+                plane_size = 0.7f; //0.5 default
                 
                 break;
             case Enemy_Level.level2_minion:
@@ -69,9 +69,9 @@ public class EnemyStats : MonoBehaviour
                 plane_size = 0.5f; //0.5 default
                 break;
             case Enemy_Level.boss:
-                health = 200f;
+                health = 100f;
                 damage = 10f;
-                attack_speed = 1f; //default is 3
+                attack_speed = 2f; //default is 3
                 attack_range = 40f;
                 player_range = 400f;
                 bullet_speed = 1.5f;
